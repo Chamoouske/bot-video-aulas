@@ -11,6 +11,7 @@ class Edge(SeleniumBrowser):
     """
 
     def __init__(self, occult=False):
+        super().__init__()
         self.options = webdriver.EdgeOptions()
         service = EdgeService(EdgeChromiumDriverManager().install())
         self.driver = webdriver.Edge(service=service, options=self.options)

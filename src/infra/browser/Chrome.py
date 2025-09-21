@@ -11,6 +11,7 @@ class Chrome(SeleniumBrowser):
     """
 
     def __init__(self, occult=False):
+        super().__init__()
         self.options = webdriver.ChromeOptions()
         if occult:
             self.options.add_argument("--headless")

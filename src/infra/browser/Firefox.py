@@ -11,6 +11,7 @@ class Firefox(SeleniumBrowser):
     """
 
     def __init__(self, occult=False):
+        super().__init__()
         self.options = webdriver.FirefoxOptions()
         service = FirefoxService(GeckoDriverManager().install())
         self.driver = webdriver.Firefox(service=service, options=self.options)

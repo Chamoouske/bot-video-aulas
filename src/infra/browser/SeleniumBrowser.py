@@ -1,6 +1,7 @@
 from selenium import webdriver
 
 from src.domain.model.Browser import Browser
+from src.pkg.settings import XpathSettings
 
 
 def verify_browser_contains_driver(func):
@@ -16,9 +17,11 @@ def verify_browser_contains_driver(func):
 
 class SeleniumBrowser(Browser):
     driver: webdriver.Remote
+    xpaths: XpathSettings
 
-    def __init__(self):
+    def __init__(self, xpaths: XpathSettings = XpathSettings()):
         self.driver = None
+        self.xpaths = xpaths
 
     @verify_browser_contains_driver
     def launch(self):
