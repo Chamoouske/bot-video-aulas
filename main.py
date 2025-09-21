@@ -1,14 +1,13 @@
-import sys
-
 from src.infra.browser.BrowserFactory import BrowserFactory
-from src.infra.browser.SeleniumBrowser import SeleniumBrowser
+from src.pkg.settings import settings
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        browser_name = sys.argv[1]
-        browser = BrowserFactory.create_browser(browser_name)
-    else:
-        browser = SeleniumBrowser()
+    browser_name = settings.browser
+
+    browser = BrowserFactory.create_browser(browser_name)
     browser.launch()
-    print("Browser launched successfully!")
+    print(f"{browser_name.capitalize()} browser launched successfully!")
+
+    browser.go_to(settings.url_base)
+
     browser.close()
