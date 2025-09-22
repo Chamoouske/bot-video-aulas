@@ -56,8 +56,7 @@ class SeleniumBrowser(Browser):
             element = self.driver.find_element(
                 By.CLASS_NAME, self.xpaths.wait_to_complete
             )
-            info(element)
-            r = True if element else False
+            r = True if element.text.strip() else False
         except Exception as e:
             error(e)
             pass
@@ -91,7 +90,7 @@ class SeleniumBrowser(Browser):
     def play_video(self):
         WebDriverWait(self.driver, timeout=60).until(
             lambda driver: driver.find_element(
-                By.XPATH, self.xpaths.video
+                By.CSS_SELECTOR, self.xpaths.video
             ).is_displayed()
         )
         element = self.driver.find_element(By.CSS_SELECTOR, self.xpaths.video)
