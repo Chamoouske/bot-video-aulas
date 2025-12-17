@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     login: str = ""
     psw: str = ""
     browser: str = "chrome"
+    headless: bool = False
     url_base: str = "https://www.algaworks.com"
     course_url: str = ""
 
