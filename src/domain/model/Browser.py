@@ -2,12 +2,12 @@ from abc import abstractmethod
 
 
 class Browser:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         pass
 
     def __new__(cls, *args, **kwargs):
         if not hasattr(cls, "_instance"):
-            cls._instance = super(Browser, cls).__new__(cls, *args, **kwargs)
+            cls._instance = super(Browser, cls).__new__(cls)
         return cls._instance
 
     @abstractmethod

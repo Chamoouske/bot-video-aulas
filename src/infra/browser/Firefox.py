@@ -13,7 +13,7 @@ class Firefox(SeleniumBrowser):
     def __init__(self, headless=False):
         super().__init__()
         self.options = webdriver.FirefoxOptions()
-        service = FirefoxService(GeckoDriverManager().install())
-        self.driver = webdriver.Firefox(service=service, options=self.options)
         if headless:
             self.options.add_argument("--headless")
+        service = FirefoxService(GeckoDriverManager().install())
+        self.driver = webdriver.Firefox(service=service, options=self.options)
