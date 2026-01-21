@@ -1,5 +1,4 @@
 from src.infra.browser.SeleniumBrowser import SeleniumBrowser
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium import webdriver
 import logging
