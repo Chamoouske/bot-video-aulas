@@ -1,5 +1,5 @@
 from src.domain.model.Browser import Browser
-from src.infra.browser import Chrome, Edge, Firefox
+from src.infra.browser import Chrome, Edge, Firefox, Chromium
 
 
 class BrowserFactory:
@@ -7,6 +7,7 @@ class BrowserFactory:
     def create_browser(browser: str, *args, **kwargs) -> Browser:
         browsers: dict[str, type[Browser]] = {
             "chrome": Chrome,
+            "chromium": Chromium,
             "firefox": Firefox,
             "edge": Edge,
         }
