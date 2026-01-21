@@ -8,5 +8,5 @@ class XpathSettings:
         "//div[contains(@class, 'c-video-navigator--next')]/a[contains(@class, 'c-video-navigator__arrow')]"
     )
     complete_lesson_when_not_a_video: str = "/html/body/div[4]/div/div[1]/a"
-    video: str = "iframe[src*='player.vimeo.com']"
+    video: str = "iframe[src*='vdocipher'], iframe[src*='player']"
     btn_close = '//*[@id="pdv4close"]'

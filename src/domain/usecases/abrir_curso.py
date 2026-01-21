@@ -20,7 +20,7 @@ def abrir_curso(browser: Browser, settings: Settings, xpaths: XpathSettings) -> 
     if browser.load_last_url() == settings.url_base+settings.course_url:
         browser.click_button(xpaths.first_lesson_button)
     MAX_LESSON_ATTEMPTS = 2
-    MAX_STATUS_CHECKS = 12  
+    MAX_STATUS_CHECKS = 3  
     while True:
         browser.save_last_url()
 
