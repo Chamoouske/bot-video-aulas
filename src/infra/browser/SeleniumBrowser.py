@@ -232,6 +232,13 @@ class SeleniumBrowser(Browser):
     def play_video(self):
         driver = self.driver
         try:
+            driver.execute_script("""
+                const ids = ['pdv4overlay', 'cookie-banner', 'overlay', 'modal'];
+                ids.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.remove();
+                });
+            """)
             # 1️⃣ Entrar no iframe (qualquer player conhecido)
             WebDriverWait(driver, 15).until(
                 EC.frame_to_be_available_and_switch_to_it(
