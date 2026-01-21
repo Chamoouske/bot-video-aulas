@@ -2,5 +2,7 @@ services:
   app:
     build: .
     container_name: my_boot
+    env_file:
+      - .env
     volumes:
       - ./src/infra/browser:/app/src/infra/browser
