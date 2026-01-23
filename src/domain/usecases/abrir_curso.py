@@ -20,7 +20,7 @@ def abrir_curso(browser: Browser, settings: Settings, xpaths: XpathSettings) -> 
     if browser.load_last_url() == settings.url_base+settings.course_url:
         browser.click_button(xpaths.first_lesson_button)
     MAX_LESSON_ATTEMPTS = 2
-    MAX_STATUS_CHECKS = 12  
+    MAX_STATUS_CHECKS = 3  
     while True:
         browser.save_last_url()
 
@@ -33,7 +33,7 @@ def abrir_curso(browser: Browser, settings: Settings, xpaths: XpathSettings) -> 
 
             if not browser.check_class_status():
 
-                if browser.get_current_lesson_duration() == "0m 0s":
+                if browser.get_current_lesson_duration() == "0m 0s" or lesson_attempts==2:
                     browser.skip_video()
 
                 info("Duration found: %s", browser.get_current_lesson_duration())
